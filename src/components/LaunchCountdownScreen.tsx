@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { MessageCircle, Sparkles, Calendar, Eye, EyeOff, Instagram, Clock } from 'lucide-react';
 import { STORE_CONFIG } from '../config';
 
@@ -45,6 +45,25 @@ export const LaunchCountdownScreen: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Bloqueia o scroll do body quando a tela de lançamento estiver ativa, evitando que o fundo vaze no celular
+  useEffect(() => {
+    if (!previewMode) {
+      const originalBodyOverflow = document.body.style.overflow;
+      const originalHtmlOverflow = document.documentElement.style.overflow;
+      const originalBg = document.body.style.backgroundColor;
+
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.backgroundColor = '#F4EEE1';
+
+      return () => {
+        document.body.style.overflow = originalBodyOverflow;
+        document.documentElement.style.overflow = originalHtmlOverflow;
+        document.body.style.backgroundColor = originalBg;
+      };
+    }
+  }, [previewMode]);
+
   const whatsappMessage = encodeURIComponent(
     'Olá! Vi a contagem regressiva para a nova logo e novo catálogo de sabonetes artesanais e gostaria de receber novidades e tirar dúvidas!'
   );
@@ -53,7 +72,7 @@ export const LaunchCountdownScreen: React.FC = () => {
   // Se o usuário clicar em "Ver prévia do site", ocultamos a tela e mostramos apenas uma barra flutuante discreta
   if (previewMode) {
     return (
-      <div className="fixed bottom-4 right-4 z-50">
+      <div data-launch-screen="true" className="fixed bottom-4 right-4 z-50">
         <button
           type="button"
           onClick={() => setPreviewMode(false)}
@@ -67,24 +86,39 @@ export const LaunchCountdownScreen: React.FC = () => {
   }
 
   return (
-    <AnimatePresence>
-      <motion.div
-        key="launch-screen-overlay"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 overflow-y-auto bg-[#F4EEE1] text-[#434F2A] flex flex-col justify-between min-h-screen selection:bg-[#6D7833]/30"
-      >
-        {/* Faixa superior discreta */}
-        <header className="w-full bg-[#434F2A] text-[#F4EEE1] py-2 px-4 text-center">
-          <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-xs font-medium">
-            <Sparkles size={14} className="text-[#B96940]" />
-            <span>Grande Lançamento • Nova Identidade Visual e Sabonetes Artesanais</span>
-          </div>
-        </header>
+    <>
+      {/* Estilos isolados para garantir que nada da página de baixo vaze ou borre no celular */}
+      <style>{`
+        html, body {
+          overflow: hidden !important;
+          height: 100% !important;
+          background-color: #F4EEE1 !important;
+          overscroll-behavior: none !important;
+        }
+        #root > div > *:not([data-launch-screen]) {
+          display: none !important;
+        }
+      `}</style>
 
-        {/* Conteúdo Principal Centralizado */}
-        <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-12 max-w-3xl mx-auto text-center w-full">
+      <div
+        data-launch-screen="true"
+        className="fixed inset-0 z-[9999] overflow-y-auto overscroll-none bg-[#F4EEE1] text-[#434F2A] w-full min-h-[100dvh] h-[100dvh] selection:bg-[#6D7833]/30"
+        style={{
+          backgroundColor: '#F4EEE1',
+          WebkitOverflowScrolling: 'touch',
+        }}
+      >
+        <div className="min-h-[100dvh] w-full flex flex-col justify-between bg-[#F4EEE1]">
+          {/* Faixa superior discreta */}
+          <header className="w-full bg-[#434F2A] text-[#F4EEE1] py-2.5 px-4 text-center shrink-0">
+            <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-xs font-medium">
+              <Sparkles size={14} className="text-[#B96940]" />
+              <span>Grande Lançamento • Nova Identidade Visual e Sabonetes Artesanais</span>
+            </div>
+          </header>
+
+          {/* Conteúdo Principal Centralizado */}
+          <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-12 max-w-3xl mx-auto text-center w-full bg-[#F4EEE1]">
           {/* Selo de anúncio */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -216,11 +250,12 @@ export const LaunchCountdownScreen: React.FC = () => {
           </div>
         </main>
 
-        {/* Rodapé da tela de lançamento */}
-        <footer className="w-full py-4 text-center text-xs text-[#434F2A]/60 px-4">
-          <p>Orvalho da Amazônia • Produção Artesanal e Sustentável</p>
-        </footer>
-      </motion.div>
-    </AnimatePresence>
+          {/* Rodapé da tela de lançamento com safe-area para celulares */}
+          <footer className="w-full py-4 pb-[max(1.5rem,calc(env(safe-area-inset-bottom)+1.25rem))] text-center text-xs text-[#434F2A]/60 px-4 bg-[#F4EEE1] shrink-0">
+            <p>Orvalho da Amazônia • Produção Artesanal e Sustentável</p>
+          </footer>
+        </div>
+      </div>
+    </>
   );
 };
