@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
-      className="w-full pt-6 sm:pt-8 md:pt-14 pb-6 sm:pb-8 md:pb-12 text-center px-2 sm:px-4"
+      className="w-full pt-4 sm:pt-6 md:pt-10 pb-4 sm:pb-5 md:pb-6 text-center px-2 sm:px-4"
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center">
         {/* LOGO AREA - LARGE SIZE AS REQUESTED WITH GENTLE PULSE */}

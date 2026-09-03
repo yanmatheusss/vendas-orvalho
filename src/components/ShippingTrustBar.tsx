@@ -6,7 +6,8 @@ const HIGHLIGHTS = [
   {
     id: 'segura',
     title: 'Compra Segura',
-    subtitle: 'Atendimento direto e confiável pelo WhatsApp',
+    mobileTitle: 'Compra Segura',
+    subtitle: 'Atendimento direto pelo WhatsApp',
     icon: ShieldCheck,
     iconColor: '#434F2A',
     iconBg: 'bg-[#6D7833]/15',
@@ -14,7 +15,8 @@ const HIGHLIGHTS = [
   {
     id: 'envio',
     title: 'Enviamos p/ Todo Brasil',
-    subtitle: 'Consulte frete e prazos para a sua cidade',
+    mobileTitle: 'Enviamos p/ Todo Brasil',
+    subtitle: 'Consulte frete para sua cidade',
     icon: Truck,
     iconColor: '#B96940',
     iconBg: 'bg-[#B96940]/15',
@@ -22,7 +24,8 @@ const HIGHLIGHTS = [
   {
     id: 'entrega-sabados',
     title: 'Entrega Grátis aos Sábados',
-    subtitle: 'Exclusivo para Ouro Preto do Oeste - RO',
+    mobileTitle: 'Grátis para OPO - RO',
+    subtitle: 'Para Ouro Preto do Oeste - RO',
     icon: MapPin,
     iconColor: '#434F2A',
     iconBg: 'bg-[#434F2A]/15',
@@ -34,24 +37,26 @@ export const ShippingTrustBar: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Auto rotation with comfortable time
+  // Auto rotation
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % HIGHLIGHTS.length);
-    }, 4500);
+    }, 4000);
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
   const currentItem = HIGHLIGHTS[activeIndex];
   const CurrentIcon = currentItem.icon;
 
-  const handlePrev = () => {
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsAutoPlaying(false);
     setActiveIndex((prev) => (prev === 0 ? HIGHLIGHTS.length - 1 : prev - 1));
   };
 
-  const handleNext = () => {
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsAutoPlaying(false);
     setActiveIndex((prev) => (prev + 1) % HIGHLIGHTS.length);
   };
@@ -59,159 +64,116 @@ export const ShippingTrustBar: React.FC = () => {
   return (
     <motion.section
       aria-label="Informações de Entrega e Segurança"
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="w-full max-w-4xl mx-auto mb-8 sm:mb-12"
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="w-full max-w-4xl mx-auto mb-4 sm:mb-6"
     >
       {/* ========================================================
-          DESKTOP VIEW: Mantido exatamente com a estrutura perfeita
+          DESKTOP VIEW: ULTRA SLIM & REFINADO
+          - Altura reduzida e compacta
+          - 3 itens em linha única com divisores elegantes
          ======================================================== */}
-      <div className="hidden md:block bg-white/60 backdrop-blur-xs border border-[#6D7833]/25 rounded-2xl p-4 sm:p-5 shadow-xs">
-        <div className="grid grid-cols-3 gap-4 divide-x divide-[#6D7833]/20">
-          {/* Item 1: Compra Segura */}
-          <div className="flex items-center gap-3.5 pr-2">
-            <div className="w-10 h-10 rounded-xl bg-[#6D7833]/15 text-[#434F2A] flex items-center justify-center shrink-0">
-              <ShieldCheck size={20} className="text-[#434F2A]" />
-            </div>
-            <div className="min-w-0">
-              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#434F2A]">
-                Compra Segura
-              </h3>
-              <p className="text-[11px] text-[#434F2A]/75 leading-tight mt-0.5">
-                Atendimento direto e confiável pelo WhatsApp
-              </p>
-            </div>
+      <div className="hidden md:flex items-center justify-between bg-white/70 backdrop-blur-xs border border-[#6D7833]/20 rounded-full px-5 py-2 shadow-2xs">
+        {/* Item 1: Compra Segura */}
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-[#6D7833]/15 text-[#434F2A] flex items-center justify-center shrink-0">
+            <ShieldCheck size={14} className="text-[#434F2A]" />
           </div>
+          <span className="text-xs font-bold uppercase tracking-wider text-[#434F2A]">
+            Compra Segura
+          </span>
+          <span className="text-[11px] text-[#434F2A]/70">
+            • Atendimento direto no WhatsApp
+          </span>
+        </div>
 
-          {/* Item 2: Envio para todo o Brasil */}
-          <div className="flex items-center gap-3.5 pl-4 pr-2">
-            <div className="w-10 h-10 rounded-xl bg-[#B96940]/15 text-[#B96940] flex items-center justify-center shrink-0">
-              <Truck size={20} className="text-[#B96940]" />
-            </div>
-            <div className="min-w-0">
-              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#434F2A]">
-                Enviamos p/ Todo Brasil
-              </h3>
-              <p className="text-[11px] text-[#434F2A]/75 leading-tight mt-0.5">
-                Entre em contato para saber o valor do frete
-              </p>
-            </div>
-          </div>
+        <div className="h-4 w-px bg-[#6D7833]/20" />
 
-          {/* Item 3: Entrega Grátis aos Sábados */}
-          <div className="flex items-center gap-3.5 pl-4">
-            <div className="w-10 h-10 rounded-xl bg-[#434F2A]/15 text-[#434F2A] flex items-center justify-center shrink-0">
-              <MapPin size={20} className="text-[#434F2A]" />
-            </div>
-            <div className="min-w-0">
-              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#434F2A]">
-                Entrega Grátis aos Sábados
-              </h3>
-              <p className="text-[11px] text-[#B96940] font-semibold leading-tight mt-0.5">
-                Para Ouro Preto do Oeste - RO
-              </p>
-            </div>
+        {/* Item 2: Enviamos p/ Todo Brasil */}
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-[#B96940]/15 text-[#B96940] flex items-center justify-center shrink-0">
+            <Truck size={14} className="text-[#B96940]" />
           </div>
+          <span className="text-xs font-bold uppercase tracking-wider text-[#434F2A]">
+            Enviamos p/ Todo Brasil
+          </span>
+          <span className="text-[11px] text-[#434F2A]/70">
+            • Consulte o frete
+          </span>
+        </div>
+
+        <div className="h-4 w-px bg-[#6D7833]/20" />
+
+        {/* Item 3: Entrega Grátis */}
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-[#434F2A]/15 text-[#434F2A] flex items-center justify-center shrink-0">
+            <MapPin size={14} className="text-[#434F2A]" />
+          </div>
+          <span className="text-xs font-bold uppercase tracking-wider text-[#434F2A]">
+            Entrega Grátis aos Sábados
+          </span>
+          <span className="text-[11px] text-[#B96940] font-semibold">
+            • Ouro Preto do Oeste
+          </span>
         </div>
       </div>
 
       {/* ========================================================
-          MOBILE VIEW: TOTALMENTE DESAFOGADO E ESPAÇOSO
-          - O texto agora tem 100% da largura livre para respirar
-          - Sem tags comprimindo o título "Entrega Grátis aos Sábados"
-          - Tipografia limpa, fluida e com espaçamento harmônico
+          MOBILE VIEW: ULTRA SLIM (FAIXA COMPACTA COM CARROSSEL)
+          - Ocupa pouquíssima altura vertical na tela
+          - Transição suave entre os itens
          ======================================================== */}
       <div
-        className="md:hidden bg-white/80 backdrop-blur-md border border-[#6D7833]/25 rounded-3xl p-5 shadow-sm transition-all duration-300"
+        className="md:hidden bg-white/75 backdrop-blur-md border border-[#6D7833]/20 rounded-full px-2 py-1.5 shadow-2xs flex items-center justify-between gap-1"
         onTouchStart={() => setIsAutoPlaying(false)}
-        onMouseEnter={() => setIsAutoPlaying(false)}
       >
-        {/* Main Content Area */}
-        <div className="min-h-[86px] flex items-center">
+        {/* Seta Esquerda Compacta */}
+        <button
+          type="button"
+          onClick={handlePrev}
+          aria-label="Item anterior"
+          className="w-7 h-7 rounded-full flex items-center justify-center text-[#434F2A]/70 hover:text-[#434F2A] hover:bg-[#6D7833]/10 active:scale-90 transition-all shrink-0"
+        >
+          <ChevronLeft size={16} />
+        </button>
+
+        {/* Conteúdo Central Slim em Linha */}
+        <div className="flex-1 min-w-0 overflow-hidden px-1">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentItem.id}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="flex items-center gap-4 w-full"
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="flex items-center justify-center gap-2 text-center"
             >
-              {/* Icon */}
               <div
-                className={`w-12 h-12 rounded-2xl ${currentItem.iconBg} flex items-center justify-center shrink-0 shadow-xs`}
+                className={`w-6 h-6 rounded-full ${currentItem.iconBg} flex items-center justify-center shrink-0`}
               >
-                <CurrentIcon size={24} style={{ color: currentItem.iconColor }} />
+                <CurrentIcon size={14} style={{ color: currentItem.iconColor }} />
               </div>
-
-              {/* Text content - completely unconstrained and free to breathe */}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-extrabold uppercase tracking-wide text-[#434F2A] leading-snug">
-                  {currentItem.title}
-                </h3>
-                <p
-                  className={`text-xs sm:text-sm mt-1 leading-relaxed ${
-                    currentItem.isAccent
-                      ? 'text-[#B96940] font-semibold'
-                      : 'text-[#434F2A]/85 font-normal'
-                  }`}
-                >
-                  {currentItem.subtitle}
-                </p>
+              <div className="min-w-0 truncate text-center">
+                <span className={`text-xs font-bold uppercase tracking-wider ${
+                  currentItem.isAccent ? 'text-[#B96940]' : 'text-[#434F2A]'
+                }`}>
+                  {currentItem.mobileTitle}
+                </span>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Desafogado Navigation Bar */}
-        <div className="flex items-center justify-between pt-3.5 mt-2 border-t border-[#6D7833]/15">
-          {/* Left Arrow Button */}
-          <button
-            type="button"
-            onClick={handlePrev}
-            aria-label="Benefício anterior"
-            className="flex items-center gap-1 text-xs font-semibold text-[#434F2A]/70 hover:text-[#434F2A] active:scale-95 transition-all py-1 px-2 rounded-lg"
-          >
-            <ChevronLeft size={16} />
-            <span>Anterior</span>
-          </button>
-
-          {/* Center Pill Indicators */}
-          <div className="flex items-center gap-2">
-            {HIGHLIGHTS.map((item, idx) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => {
-                  setIsAutoPlaying(false);
-                  setActiveIndex(idx);
-                }}
-                aria-label={`Ir para ${item.title}`}
-                className="py-1.5 px-1 focus:outline-hidden"
-              >
-                <span
-                  className={`block h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === idx
-                      ? 'w-6 bg-[#B96940] shadow-xs'
-                      : 'w-2 bg-[#6D7833]/25 hover:bg-[#6D7833]/50'
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
-
-          {/* Right Arrow Button */}
-          <button
-            type="button"
-            onClick={handleNext}
-            aria-label="Próximo benefício"
-            className="flex items-center gap-1 text-xs font-semibold text-[#434F2A]/70 hover:text-[#434F2A] active:scale-95 transition-all py-1 px-2 rounded-lg"
-          >
-            <span>Próximo</span>
-            <ChevronRight size={16} />
-          </button>
-        </div>
+        {/* Seta Direita Compacta */}
+        <button
+          type="button"
+          onClick={handleNext}
+          aria-label="Próximo item"
+          className="w-7 h-7 rounded-full flex items-center justify-center text-[#434F2A]/70 hover:text-[#434F2A] hover:bg-[#6D7833]/10 active:scale-90 transition-all shrink-0"
+        >
+          <ChevronRight size={16} />
+        </button>
       </div>
     </motion.section>
   );

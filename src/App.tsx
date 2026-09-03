@@ -5,29 +5,20 @@ import { ShippingTrustBar } from './components/ShippingTrustBar';
 import { ProductItem } from './components/ProductItem';
 import { WholesaleSection } from './components/WholesaleSection';
 import { Footer } from './components/Footer';
-import { ShoppingBag, Truck } from 'lucide-react';
+import { Truck, ArrowDown } from 'lucide-react';
 
 export default function App() {
   const [products] = useState(INITIAL_PRODUCTS);
 
   return (
     <div className="min-h-screen bg-[#F4EEE1] text-[#434F2A] flex flex-col selection:bg-[#6D7833]/30 selection:text-[#434F2A]">
-      {/* Top Banner with Delivery Policy & Reseller Anchor */}
-      <div className="w-full bg-[#434F2A] text-[#F4EEE1] py-2.5 sm:py-2 px-4 text-center">
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-xs">
-          <div className="flex items-center justify-center sm:justify-start gap-2 font-medium text-xs text-center sm:text-left leading-relaxed">
-            <Truck size={15} className="text-[#B96940] shrink-0 inline" />
-            <span>
-              Enviamos para todo o Brasil
-            </span>
-          </div>
-          <a
-            href="#secao-revenda"
-            className="text-[#F4EEE1]/90 hover:text-[#B96940] font-bold flex items-center gap-1.5 text-xs transition-colors shrink-0 bg-[#F4EEE1]/10 px-3 py-1 rounded-full sm:bg-transparent sm:p-0"
-          >
-            <ShoppingBag size={13} className="text-[#B96940]" />
-            <span>Revenda & Parcerias</span>
-          </a>
+      {/* Top Banner with Delivery Policy */}
+      <div className="w-full bg-[#434F2A] text-[#F4EEE1] py-2 px-4 text-center">
+        <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-xs font-medium leading-relaxed">
+          <Truck size={15} className="text-[#B96940] shrink-0 inline" />
+          <span>
+            Enviamos para todo o Brasil
+          </span>
         </div>
       </div>
 
@@ -36,10 +27,24 @@ export default function App() {
         {/* 1. Header with LOGO (grande e em destaque) */}
         <Header />
 
-        {/* 2. Security & Shipping Highlights */}
+        {/* 2. Security & Shipping Highlights (Ultra Slim) */}
         <ShippingTrustBar />
 
-        {/* 3. Product Catalog (Alternating layout matching wireframe) */}
+        {/* 3. Chamada Cativante para Conhecer o Catálogo */}
+        <section className="text-center max-w-2xl mx-auto pt-3 pb-6 sm:pt-4 sm:pb-8 px-2 sm:px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold font-serif-brand text-[#434F2A] tracking-tight leading-snug">
+            Conheça Nosso Catálogo Botânico
+          </h2>
+          <p className="mt-2 text-sm sm:text-base text-[#434F2A]/85 leading-relaxed font-sans max-w-lg mx-auto">
+            Feitos à mão com óleos nobres, argilas puras e a força dos bioativos da Amazônia. Explore nossas fórmulas abaixo e escolha o cuidado perfeito para sua pele:
+          </p>
+          <div className="flex items-center justify-center gap-1.5 mt-3 text-xs font-semibold text-[#B96940]">
+            <span>Role para baixo e confira cada barra</span>
+            <ArrowDown size={14} className="animate-bounce" />
+          </div>
+        </section>
+
+        {/* 4. Product Catalog (Alternating layout matching wireframe) */}
         <main id="catalogo-sabonetes" className="w-full">
           <div className="divide-y divide-[#6D7833]/15">
             {products.map((product, index) => (
@@ -51,12 +56,12 @@ export default function App() {
             ))}
           </div>
 
-          {/* 4. Opção Simplificada de Chamada para Ação para Revenda & Parcerias */}
+          {/* 5. Opção Simplificada de Chamada para Ação para Revenda & Parcerias */}
           <WholesaleSection
             whatsappNumber={STORE_CONFIG.whatsapp.numero}
           />
 
-          {/* 5. Wireframe Pre-Footer text: "proximo lançamento em breve" */}
+          {/* 6. Wireframe Pre-Footer text: "proximo lançamento em breve" */}
           <div className="w-full max-w-4xl mx-auto pt-6 pb-4 text-right px-2 sm:px-4">
             <p
               id="teaser-proximo-lancamento"
@@ -68,7 +73,7 @@ export default function App() {
         </main>
       </div>
 
-      {/* 6. Footer */}
+      {/* 7. Footer */}
       <Footer />
     </div>
   );

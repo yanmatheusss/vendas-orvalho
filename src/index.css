@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --font-primary: 'Syne', sans-serif;
+  --font-support: 'Poppins', sans-serif;
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif-brand: 'Syne', sans-serif;
+  --font-display: 'Syne', sans-serif;
+}
+
 :root {
   --color-primary: #434F2A;
   --color-bg: #F4EEE1;
@@ -10,15 +18,23 @@
 body {
   background-color: #F4EEE1;
   color: #434F2A;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fonte primária: Syne para títulos, marcas e destaques */
+h1, h2, h3, h4, h5, h6,
+.font-primary,
+.font-brand,
+.font-display,
 .font-serif-brand {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Syne', sans-serif;
 }
 
-.font-display {
-  font-family: 'Cinzel', 'Playfair Display', serif;
+/* Fonte de apoio: Poppins para leitura, textos complementares, botões e labels */
+p, span, a, button, input, textarea, label, li,
+.font-support,
+.font-sans {
+  font-family: 'Poppins', sans-serif;
 }
