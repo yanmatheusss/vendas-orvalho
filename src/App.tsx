@@ -5,13 +5,25 @@ import { ShippingTrustBar } from './components/ShippingTrustBar';
 import { ProductItem } from './components/ProductItem';
 import { WholesaleSection } from './components/WholesaleSection';
 import { Footer } from './components/Footer';
+import { LaunchCountdownScreen } from './components/LaunchCountdownScreen';
 import { Truck, ArrowDown } from 'lucide-react';
+
+/**
+ * =========================================================================
+ * 🚀 TELA DE LANÇAMENTO (FÁCIL DE ATIVAR OU REMOVER)
+ * Para desativar e exibir o site diretamente, basta mudar para: false
+ * =========================================================================
+ */
+const EXIBIR_TELA_LANCAMENTO = true;
 
 export default function App() {
   const [products] = useState(INITIAL_PRODUCTS);
 
   return (
     <div className="min-h-screen bg-[#F4EEE1] text-[#434F2A] flex flex-col selection:bg-[#6D7833]/30 selection:text-[#434F2A]">
+      {/* Tela de Lançamento com Contagem Regressiva (Fácil de desativar quando desejar) */}
+      {EXIBIR_TELA_LANCAMENTO && <LaunchCountdownScreen />}
+
       {/* Top Banner with Delivery Policy */}
       <div className="w-full bg-[#434F2A] text-[#F4EEE1] py-2 px-4 text-center">
         <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-xs font-medium leading-relaxed">
