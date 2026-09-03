@@ -18,7 +18,7 @@ export default function App() {
           <div className="flex items-center justify-center sm:justify-start gap-2 font-medium text-xs text-center sm:text-left leading-relaxed">
             <Truck size={15} className="text-[#B96940] shrink-0 inline" />
             <span>
-              Todos os sábados <strong className="text-[#F4EEE1] underline decoration-[#B96940] underline-offset-2 font-bold">entrega grátis</strong> para Ouro Preto do Oeste - RO • Enviamos para todo o Brasil
+              Enviamos para todo o Brasil
             </span>
           </div>
           <a
