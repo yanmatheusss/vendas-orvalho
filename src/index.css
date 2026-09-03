@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #434F2A;
+  --color-bg: #F4EEE1;
+  --color-secondary-green: #6D7833;
+  --color-terracotta: #B96940;
+}
+
+body {
+  background-color: #F4EEE1;
+  color: #434F2A;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-display {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+}

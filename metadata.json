@@ -1,0 +1,6 @@
+{
+  "name": "Catálogo de Sabonetes Artesanais",
+  "description": "Catálogo minimalista e responsivo de sabonetes artesanais com pedidos diretos via WhatsApp e fácil manutenção.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
