@@ -15,19 +15,42 @@ export const Header: React.FC = () => {
       className="w-full pt-6 sm:pt-8 md:pt-14 pb-6 sm:pb-8 md:pb-12 text-center px-2 sm:px-4"
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center">
-        {/* LOGO AREA - LARGE SIZE AS REQUESTED */}
+        {/* LOGO AREA - LARGE SIZE AS REQUESTED WITH GENTLE PULSE */}
         {activeLogo && !imageError ? (
           <div className="relative flex justify-center items-center w-full">
-            <img
+            <motion.img
               src={activeLogo}
               alt={STORE_CONFIG.nomeLoja}
               referrerPolicy="no-referrer"
               onError={() => setImageError(true)}
-              className="max-h-40 sm:max-h-56 md:max-h-72 lg:max-h-84 w-auto max-w-full object-contain mx-auto transition-transform duration-300 hover:scale-[1.02]"
+              animate={{
+                scale: [1, 1.035, 1],
+                filter: [
+                  'drop-shadow(0 2px 8px rgba(67, 79, 42, 0.08))',
+                  'drop-shadow(0 6px 16px rgba(67, 79, 42, 0.16))',
+                  'drop-shadow(0 2px 8px rgba(67, 79, 42, 0.08))',
+                ],
+              }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+              className="max-h-40 sm:max-h-56 md:max-h-72 lg:max-h-84 w-auto max-w-full object-contain mx-auto will-change-transform"
             />
           </div>
         ) : (
-          <div className="relative inline-block">
+          <motion.div
+            animate={{
+              scale: [1, 1.03, 1],
+            }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            className="relative inline-block will-change-transform"
+          >
             {/* Wireframe-matched uppercase bold display LOGO */}
             <h1
               id="brand-logo-text"
@@ -39,7 +62,7 @@ export const Header: React.FC = () => {
             <p className="mt-2 text-sm md:text-base tracking-[0.25em] uppercase font-semibold opacity-90" style={{ color: '#6D7833' }}>
               {STORE_CONFIG.nomeLoja}
             </p>
-          </div>
+          </motion.div>
         )}
       </div>
     </motion.header>

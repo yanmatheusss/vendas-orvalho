@@ -62,7 +62,7 @@ export const WholesaleSection: React.FC<WholesaleSectionProps> = ({
           </div>
 
           {/* CTA Action Column */}
-          <div className="flex flex-col items-center md:items-end justify-center shrink-0 w-full md:w-auto pt-2 md:pt-0">
+          <div className="flex flex-col items-center justify-center shrink-0 w-full md:w-auto pt-2 md:pt-0 text-center">
             <a
               id="btn-whatsapp-revenda"
               href={wholesaleWhatsAppUrl}
@@ -73,7 +73,7 @@ export const WholesaleSection: React.FC<WholesaleSectionProps> = ({
               <MessageCircle size={19} className="shrink-0" />
               <span>Falar sobre Revenda no WhatsApp</span>
             </a>
-            <span className="text-[11px] text-[#434F2A]/70 mt-2 font-medium text-center md:text-right">
+            <span className="text-[11px] text-[#434F2A]/70 mt-2 font-medium text-center block">
               Defina quantidades, modelos e frete com nossa equipe
             </span>
           </div>
