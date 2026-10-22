@@ -5,41 +5,45 @@ import { ShippingTrustBar } from './components/ShippingTrustBar';
 import { ProductItem } from './components/ProductItem';
 import { WholesaleSection } from './components/WholesaleSection';
 import { Footer } from './components/Footer';
-import { LaunchCountdownScreen } from './components/LaunchCountdownScreen';
-import { Truck, ArrowDown } from 'lucide-react';
-
-/**
- * =========================================================================
- * 🚀 TELA DE LANÇAMENTO (FÁCIL DE ATIVAR OU REMOVER)
- * Para desativar e exibir o site diretamente, basta mudar para: false
- * =========================================================================
- */
-const EXIBIR_TELA_LANCAMENTO = true;
+import { InstagramCampaignBanner } from './components/InstagramCampaignBanner';
+import { Truck, ArrowDown, Instagram } from 'lucide-react';
 
 export default function App() {
   const [products] = useState(INITIAL_PRODUCTS);
+  const instagramHandle = STORE_CONFIG.rodape.instagram.replace('@', '');
+  const instagramUrl = `https://www.instagram.com/${instagramHandle}/`;
 
   return (
     <div className="min-h-screen bg-[#F4EEE1] text-[#434F2A] flex flex-col selection:bg-[#6D7833]/30 selection:text-[#434F2A]">
-      {/* Tela de Lançamento com Contagem Regressiva (Fácil de desativar quando desejar) */}
-      {EXIBIR_TELA_LANCAMENTO && <LaunchCountdownScreen />}
-
-      {/* Top Banner with Delivery Policy */}
-      <div className="w-full bg-[#434F2A] text-[#F4EEE1] py-2 px-4 text-center">
-        <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 text-xs font-medium leading-relaxed">
-          <Truck size={15} className="text-[#B96940] shrink-0 inline" />
-          <span>
-            Enviamos para todo o Brasil
+      {/* Top Banner with Instagram Campaign Announcement & Delivery Info */}
+      <div className="w-full bg-[#434F2A] text-[#F4EEE1] py-2 px-4 text-center border-b border-[#6D7833]/30">
+        <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 sm:gap-3 text-xs font-medium leading-relaxed flex-wrap">
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-semibold text-[#F4EEE1] hover:text-[#B96940] transition-colors"
+          >
+            <Instagram size={14} className="text-[#B96940] shrink-0" />
+            <span>Acompanhe no Instagram oficial de 22 a 30 de outubro</span>
+          </a>
+          <span className="hidden sm:inline text-[#F4EEE1]/40">•</span>
+          <span className="inline-flex items-center gap-1.5 text-[#F4EEE1]/85">
+            <Truck size={14} className="text-[#B96940] shrink-0" />
+            <span>Enviamos para todo o Brasil</span>
           </span>
         </div>
       </div>
 
       {/* Main Container */}
       <div className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 1. Header with LOGO (grande e em destaque) */}
+        {/* 1. Header with LOGO */}
         <Header />
 
-        {/* 2. Security & Shipping Highlights (Ultra Slim) */}
+        {/* 2. Destaque Oficial: Acompanhe as postagens no Instagram (22 a 30 de Outubro) */}
+        <InstagramCampaignBanner />
+
+        {/* 3. Security & Shipping Highlights (Ultra Slim) */}
         <ShippingTrustBar />
 
         {/* 3. Chamada Cativante para Conhecer o Catálogo */}

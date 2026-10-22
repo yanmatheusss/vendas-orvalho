@@ -41,15 +41,22 @@ export const Footer: React.FC = () => {
 
         {/* Quick Highlights / Info Badges */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 py-4 text-xs sm:text-sm border-b border-[#F4EEE1]/15 mb-8">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#6D7833]/40 flex items-center justify-center shrink-0">
+          <a
+            href={`https://www.instagram.com/${STORE_CONFIG.rodape.instagram.replace('@', '')}/`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 group hover:opacity-90 transition-opacity"
+          >
+            <div className="w-9 h-9 rounded-full bg-[#6D7833]/40 group-hover:bg-[#B96940] transition-colors flex items-center justify-center shrink-0">
               <Instagram size={18} className="text-[#F4EEE1]" />
             </div>
             <div>
-              <p className="font-semibold">Instagram</p>
-              <span className="text-[#F4EEE1]/70">{STORE_CONFIG.rodape.instagram}</span>
+              <p className="font-semibold group-hover:text-[#B96940] transition-colors">Instagram Oficial</p>
+              <span className="text-[#F4EEE1]/80 underline decoration-[#B96940]/40 underline-offset-2">
+                {STORE_CONFIG.rodape.instagram}
+              </span>
             </div>
-          </div>
+          </a>
 
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-[#6D7833]/40 flex items-center justify-center shrink-0">
