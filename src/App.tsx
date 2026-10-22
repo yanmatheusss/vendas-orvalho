@@ -16,8 +16,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F4EEE1] text-[#434F2A] flex flex-col selection:bg-[#6D7833]/30 selection:text-[#434F2A]">
       {/* Top Banner with Instagram Campaign Announcement & Delivery Info */}
-      <div className="w-full bg-[#434F2A] text-[#F4EEE1] py-2 px-4 text-center border-b border-[#6D7833]/30">
-        <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 sm:gap-3 text-xs font-medium leading-relaxed flex-wrap">
+      <div className="w-full bg-[#434F2A] text-[#F4EEE1] border-b border-[#6D7833]/30 overflow-hidden select-none">
+        {/* Versão Desktop: Centralizada em linha única */}
+        <div className="hidden sm:flex max-w-4xl mx-auto py-2 px-4 items-center justify-center gap-3 text-xs font-medium leading-relaxed">
           <a
             href={instagramUrl}
             target="_blank"
@@ -27,12 +28,51 @@ export default function App() {
             <Instagram size={14} className="text-[#B96940] shrink-0" />
             <span>Acompanhe no Instagram oficial de 22 a 30 de outubro</span>
           </a>
-          <span className="hidden sm:inline text-[#F4EEE1]/40">•</span>
+          <span className="text-[#F4EEE1]/40">•</span>
           <span className="inline-flex items-center gap-1.5 text-[#F4EEE1]/85">
             <Truck size={14} className="text-[#B96940] shrink-0" />
             <span>Enviamos para todo o Brasil</span>
           </span>
         </div>
+
+        {/* Versão Celular: Letreiro contínuo (Marquee) ultra-slim em linha única */}
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="sm:hidden flex items-center py-2 overflow-hidden text-xs font-medium leading-none focus:outline-none"
+          title="Toque para abrir o Instagram oficial"
+        >
+          <div className="animate-marquee flex items-center shrink-0">
+            {/* Bloco 1 */}
+            <div className="flex items-center gap-3 px-3 shrink-0">
+              <span className="inline-flex items-center gap-1.5 font-semibold text-[#F4EEE1]">
+                <Instagram size={13} className="text-[#B96940] shrink-0" />
+                <span>Acompanhe no Instagram oficial de 22 a 30 de outubro</span>
+              </span>
+              <span className="text-[#F4EEE1]/40">•</span>
+              <span className="inline-flex items-center gap-1.5 text-[#F4EEE1]/90">
+                <Truck size={13} className="text-[#B96940] shrink-0" />
+                <span>Enviamos para todo o Brasil</span>
+              </span>
+              <span className="text-[#F4EEE1]/40">•</span>
+            </div>
+
+            {/* Bloco 2 (duplicata idêntica para loop infinito sem cortes) */}
+            <div className="flex items-center gap-3 px-3 shrink-0">
+              <span className="inline-flex items-center gap-1.5 font-semibold text-[#F4EEE1]">
+                <Instagram size={13} className="text-[#B96940] shrink-0" />
+                <span>Acompanhe no Instagram oficial de 22 a 30 de outubro</span>
+              </span>
+              <span className="text-[#F4EEE1]/40">•</span>
+              <span className="inline-flex items-center gap-1.5 text-[#F4EEE1]/90">
+                <Truck size={13} className="text-[#B96940] shrink-0" />
+                <span>Enviamos para todo o Brasil</span>
+              </span>
+              <span className="text-[#F4EEE1]/40">•</span>
+            </div>
+          </div>
+        </a>
       </div>
 
       {/* Main Container */}
