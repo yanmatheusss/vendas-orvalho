@@ -22,7 +22,7 @@ export const STORE_CONFIG: StoreConfig = {
   // 📱 CONFIGURAÇÃO DO WHATSAPP:
   whatsapp: {
     // Insira o número com DDI (55) e DDD, apenas dígitos:
-    numero: "5569993038046",
+    numero: "5569992943143",
     // Mensagem enviada quando o sabonete está DISPONÍVEL (valores informados via WhatsApp):
     mensagemPadrao: "Olá! Gostaria de saber os valores e combinar o pedido do sabonete artesanal *{NOME}*. Poderia me passar mais informações?",
     // Mensagem enviada quando o sabonete está INDISPONÍVEL / SOB ENCOMENDA:
