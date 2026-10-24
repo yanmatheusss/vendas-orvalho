@@ -92,7 +92,7 @@ export default function App() {
             Conheça Nosso Catálogo Botânico
           </h2>
           <p className="mt-2 text-sm sm:text-base text-[#434F2A]/85 leading-relaxed font-sans max-w-lg mx-auto">
-            100% naturais da Amazônia, elaborados em base glicerinada vegetal — sem soda cáustica e sem prensagem industrial. Cuidado suave, puro e restaurador para a sua pele:
+            Elaborados em base glicerinada 100% vegetal com bioativos e óleos nobres puros da Amazônia — sem soda cáustica e sem prensagem industrial. Cuidado suave, puro e restaurador para a sua pele:
           </p>
           <div className="flex items-center justify-center gap-1.5 mt-3 text-xs font-semibold text-[#B96940]">
             <span>Role para baixo e confira cada barra</span>

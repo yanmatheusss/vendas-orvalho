@@ -14,7 +14,7 @@ import soap4 from './assets/images/artisan_soap_4_1788391400296.jpg';
 
 export const STORE_CONFIG: StoreConfig = {
   nomeLoja: "AROMAS & ESSÊNCIA",
-  subtitulo: "Sabonetes 100% Naturais da Amazônia • Base Glicerinada Vegetal",
+  subtitulo: "Bioativos Puros da Amazônia • Base Glicerinada 100% Vegetal",
   
   // 🌿 SUA LOGO:
   logoUrl: "https://blogger.googleusercontent.com/img/a/AVvXsEj8AbSFseqdEpplIk4SuyPaB-3IIjHBMkn1SURb_Y5xw7y9HxDzL0x23KIYVx43QyOi0OlWkfByJls2XGWkle8bsVY5vCSBin0-By0R5y2lNU0cuI-ttH1J3IOK9COCejSilATGtTSNYVUUaI_RmsPfJmm67dmDlFdhUyk2KoufyxCbP_GEHxRPWlC-nJoz",
@@ -42,7 +42,7 @@ export const STORE_CONFIG: StoreConfig = {
   // 🍃 RODAPÉ EDITÁVEL FÁCIL:
   rodape: {
     titulo: "ORVALHO DA AMAZÔNIA",
-    descricao: "Produção artesanal 100% natural da Amazônia em base glicerinada vegetal, sem soda cáustica e sem prensagem industrial. Elaborada com bioativos nobres da floresta para um cuidado suave e restaurador da pele.",
+    descricao: "Produção artesanal em base glicerinada 100% vegetal enriquecida com os mais nobres óleos e bioativos puros da floresta amazônica. Feito sem soda cáustica e sem prensagem industrial, para um cuidado suave e restaurador da pele.",
     instagram: "@orvalhodaamazonia",
     horarioAtendimento: "Segunda a Sábado, das 09h às 19h",
     localizacao: "Enviamos para todo o Brasil • Entrega grátis todos os sábados para Ouro Preto do Oeste - RO",
@@ -62,44 +62,44 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: "copaiba-amazonica",
     nome: "COPAÍBA AMAZÔNICA",
-    descricao: "Sabonete 100% natural da Amazônia formulado em base glicerinada vegetal com o puro óleo-resina de copaíba. Não fabricado com soda cáustica ou prensagem, proporciona limpeza suave, ação calmante e hidratação que respeita a barreira cutânea.",
-    beneficios: ["100% Natural da Amazônia", "Base Glicerinada Vegetal", "Sem Soda Cáustica"],
+    descricao: "Feito em base glicerinada 100% vegetal com puro óleo-resina de copaíba da Amazônia, rico em beta-cariofileno. Ação anti-inflamatória e cicatrizante que purifica os poros, combate a acne e equilibra a oleosidade com suavidade.",
+    beneficios: ["Óleo de Copaíba da Amazônia", "Base Glicerinada 100% Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "110g",
-    aroma: "Amadeirado & Bálsamo Natural",
+    aroma: "Amadeirado Balsâmico & Suave",
     imagem: soap1,
     disponivel: false // Ainda não disponível / Sob encomenda
   },
   {
     id: "andiroba-amazonica",
     nome: "ANDIROBA AMAZÔNICA",
-    descricao: "Elaborado em base glicerinada vegetal 100% natural da Amazônia com o puro óleo de andiroba da floresta tropical. Sem soda cáustica e sem prensagem mecânica agressiva, oferece nutrição profunda, conforto restaurador e toque aveludado.",
-    beneficios: ["100% Natural da Amazônia", "Base Glicerinada Vegetal", "Sem Soda Cáustica"],
+    descricao: "Feito em base glicerinada 100% vegetal com puro óleo de andiroba da floresta amazônica, rico em limonoides e ômegas 6 e 9. Potente restaurador tecidual que acalma irritações, combate o ressecamento e renova a maciez da pele.",
+    beneficios: ["Óleo de Andiroba da Amazônia", "Base Glicerinada 100% Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "115g",
-    aroma: "Herbal Terroso & Suave",
+    aroma: "Herbal Terroso & Reconfortante",
     imagem: soap2,
     disponivel: false // Ainda não disponível / Sob encomenda
   },
   {
     id: "ouro-da-floresta",
     nome: "OURO DA FLORESTA",
-    descricao: "Composição 100% natural da Amazônia em nobre base glicerinada vegetal enriquecida com óleos dourados da floresta. Sem soda cáustica e sem prensagem, restaura a maciez e o viço natural com uma espuma cremosa e reconfortante.",
-    beneficios: ["100% Natural da Amazônia", "Base Glicerinada Vegetal", "Sem Soda Cáustica"],
+    descricao: "Feito em base glicerinada 100% vegetal com óleo de copaíba da Amazônia, cascas do tronco da árvore e óleo de coco vegetal. Shampoo sólido anticaspa amazônico que purifica o couro cabeludo e equilibra a saúde dos fios com suavidade.",
+    beneficios: ["Copaíba & Cascas do Tronco", "Shampoo Sólido Anticaspa", "Base Glicerinada 100% Vegetal"],
     preco: "Consulte via WhatsApp",
     peso: "110g",
-    aroma: "Quente & Botânico Nobre",
+    aroma: "Balsâmico Terapêutico & Amadeirado",
     imagem: soap3,
     disponivel: false // Ainda não disponível / Sob encomenda
   },
   {
     id: "argilas-amazonicas",
     nome: "ARGILAS AMAZÔNICAS",
-    descricao: "Formulado em base glicerinada vegetal com argilas minerais puras colhidas na região amazônica. Sabonete 100% natural, sem soda cáustica e sem prensagem, promove purificação delicada e renovação cutânea mantendo a hidratação essencial.",
-    beneficios: ["100% Natural da Amazônia", "Base Glicerinada Vegetal", "Sem Soda Cáustica"],
+    descricao: "Feito em base glicerinada 100% vegetal com argilas minerais puras da bacia amazônica, ricas em oligoelementos. Detox natural inteligente que desobstrui os poros e equilibra a oleosidade sem ressecar, deixando a pele aveludada.",
+    beneficios: ["Argilas Minerais da Amazônia", "Base Glicerinada 100% Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "120g",
-    aroma: "Mineral & Refrescante",
+    aroma: "Mineral Puro & Refrescante",
     imagem: soap4,
     disponivel: false // Ainda não disponível / Sob encomenda
   }
