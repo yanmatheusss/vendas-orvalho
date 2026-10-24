@@ -14,7 +14,7 @@ import soap4 from './assets/images/artisan_soap_4_1788391400296.jpg';
 
 export const STORE_CONFIG: StoreConfig = {
   nomeLoja: "AROMAS & ESSÊNCIA",
-  subtitulo: "Sabonetes Artesanais 100% Naturais",
+  subtitulo: "Sabonetes 100% Naturais da Amazônia • Base Glicerinada Vegetal",
   
   // 🌿 SUA LOGO:
   logoUrl: "https://blogger.googleusercontent.com/img/a/AVvXsEj8AbSFseqdEpplIk4SuyPaB-3IIjHBMkn1SURb_Y5xw7y9HxDzL0x23KIYVx43QyOi0OlWkfByJls2XGWkle8bsVY5vCSBin0-By0R5y2lNU0cuI-ttH1J3IOK9COCejSilATGtTSNYVUUaI_RmsPfJmm67dmDlFdhUyk2KoufyxCbP_GEHxRPWlC-nJoz",
@@ -42,7 +42,7 @@ export const STORE_CONFIG: StoreConfig = {
   // 🍃 RODAPÉ EDITÁVEL FÁCIL:
   rodape: {
     titulo: "ORVALHO DA AMAZÔNIA",
-    descricao: "Produção artesanal botânica com óleos vegetais nobres, argilas puras e óleos essenciais terapêuticos. Cuidado suave e sustentável para a sua pele.",
+    descricao: "Produção artesanal 100% natural da Amazônia em base glicerinada vegetal, sem soda cáustica e sem prensagem industrial. Elaborada com bioativos nobres da floresta para um cuidado suave e restaurador da pele.",
     instagram: "@orvalhodaamazonia",
     horarioAtendimento: "Segunda a Sábado, das 09h às 19h",
     localizacao: "Enviamos para todo o Brasil • Entrega grátis todos os sábados para Ouro Preto do Oeste - RO",
@@ -62,8 +62,8 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: "copaiba-amazonica",
     nome: "COPAÍBA AMAZÔNICA",
-    descricao: "Formulado com o precioso óleo-resina de copaíba da Amazônia. Tradicionalmente conhecido por suas propriedades regeneradoras e calmantes, limpa profundamente respeitando a barreira natural da pele.",
-    beneficios: ["Regenerador Natural", "Calmante & Anti-inflamatório", "Biodiversidade Amazônica"],
+    descricao: "Sabonete 100% natural da Amazônia formulado em base glicerinada vegetal com o puro óleo-resina de copaíba. Não fabricado com soda cáustica ou prensagem, proporciona limpeza suave, ação calmante e hidratação que respeita a barreira cutânea.",
+    beneficios: ["100% Natural da Amazônia", "Base Glicerinada Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "110g",
     aroma: "Amadeirado & Bálsamo Natural",
@@ -73,8 +73,8 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: "andiroba-amazonica",
     nome: "ANDIROBA AMAZÔNICA",
-    descricao: "Enriquecido com puro óleo de andiroba prensado a frio, colhido de forma sustentável nas florestas tropicais. Proporciona nutrição intensa, alívio e sensação de frescor restaurador para o corpo.",
-    beneficios: ["Nutrição Intensa", "Propriedades Terapêuticas", "Toque Aveludado"],
+    descricao: "Elaborado em base glicerinada vegetal 100% natural da Amazônia com o puro óleo de andiroba da floresta tropical. Sem soda cáustica e sem prensagem mecânica agressiva, oferece nutrição profunda, conforto restaurador e toque aveludado.",
+    beneficios: ["100% Natural da Amazônia", "Base Glicerinada Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "115g",
     aroma: "Herbal Terroso & Suave",
@@ -84,8 +84,8 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: "ouro-da-floresta",
     nome: "OURO DA FLORESTA",
-    descricao: "Uma fórmula nobre inspirada na riqueza e nos óleos dourados da floresta. Restaura a maciez, devolve o viço natural da pele e proporciona uma espuma densa, cremosa e aromática.",
-    beneficios: ["Revitalização e Viço", "Hidratação Profunda", "Espuma Densa e Cremosa"],
+    descricao: "Composição 100% natural da Amazônia em nobre base glicerinada vegetal enriquecida com óleos dourados da floresta. Sem soda cáustica e sem prensagem, restaura a maciez e o viço natural com uma espuma cremosa e reconfortante.",
+    beneficios: ["100% Natural da Amazônia", "Base Glicerinada Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "110g",
     aroma: "Quente & Botânico Nobre",
@@ -95,8 +95,8 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: "argilas-amazonicas",
     nome: "ARGILAS AMAZÔNICAS",
-    descricao: "Composição mineral rica em argilas nativas da região amazônica. Oferece limpeza purificante suave, absorve impurezas e desintoxica a pele preservando sua hidratação essencial.",
-    beneficios: ["Detox Mineral", "Equilíbrio Suave", "Renovação Cutânea"],
+    descricao: "Formulado em base glicerinada vegetal com argilas minerais puras colhidas na região amazônica. Sabonete 100% natural, sem soda cáustica e sem prensagem, promove purificação delicada e renovação cutânea mantendo a hidratação essencial.",
+    beneficios: ["100% Natural da Amazônia", "Base Glicerinada Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "120g",
     aroma: "Mineral & Refrescante",

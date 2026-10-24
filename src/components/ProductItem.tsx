@@ -59,6 +59,20 @@ export const ProductItem: React.FC<ProductItemProps> = ({
         )}
       </div>
 
+      {/* Selos de Composição & Pureza Vegetal */}
+      {product.beneficios && product.beneficios.length > 0 && (
+        <div className="flex flex-wrap items-center justify-center md:justify-start gap-1.5 pt-0.5">
+          {product.beneficios.map((item, idx) => (
+            <span
+              key={idx}
+              className="inline-flex items-center text-[10px] sm:text-[11px] font-semibold text-[#434F2A] bg-[#6D7833]/15 border border-[#6D7833]/30 px-2.5 py-0.5 rounded-full"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      )}
+
       {/* Stock badge & Value discovery notice */}
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-0.5">
         {product.disponivel ? (
