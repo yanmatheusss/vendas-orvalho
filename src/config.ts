@@ -43,7 +43,7 @@ export const STORE_CONFIG: StoreConfig = {
   // 🍃 RODAPÉ EDITÁVEL FÁCIL:
   rodape: {
     titulo: "ORVALHO DA AMAZÔNIA",
-    descricao: "Produção artesanal em base glicerinada 100% vegetal enriquecida com os mais nobres óleos e bioativos puros da floresta amazônica. Feito sem soda cáustica e sem prensagem industrial, para um cuidado suave e restaurador da pele.",
+    descricao: "Produção artesanal em base glicerinada 100% vegetal enriquecida com os mais nobres óleos e bioativos puros da floresta amazônica. Feito sem soda cáustica e sem prensagem industrial, para um cuidado suave, hidratante e protetor da pele.",
     instagram: "@orvalhodaamazonia",
     horarioAtendimento: "Segunda a Sábado, das 09h às 19h",
     localizacao: "Enviamos para todo o Brasil • Entrega grátis todos os sábados para Ouro Preto do Oeste - RO",
@@ -63,8 +63,8 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: "ouro-da-floresta-blend",
     nome: "OURO DA FLORESTA - BLEND AMAZÔNICO",
-    descricao: "Lançamento da linha Ouro da Floresta de produtos amazônicos de copaíba. Frasco de 20ml com conta-gotas com blend de óleo de copaíba, coco e óleo essencial de melaleuca. Formulado para uso capilar e couro cabeludo: combate a caspa, hidratação profunda e crescimento saudável.",
-    beneficios: ["Óleo de Copaíba & Coco", "Óleo Essencial de Melaleuca", "Uso Capilar & Anticaspa", "20ml com Conta-gotas"],
+    descricao: "Lançamento da linha Ouro da Floresta de produtos amazônicos de copaíba. Frasco de 20ml com conta-gotas com blend de óleo de copaíba, coco e óleo essencial de melaleuca. Formulado para uso capilar e couro cabeludo: auxilia na redução da descamação, hidratação profunda e cuidado dos fios com aspecto saudável.",
+    beneficios: ["Óleo de Copaíba & Coco", "Óleo Essencial de Melaleuca", "Uso Capilar & Equilíbrio", "20ml com Conta-gotas"],
     preco: "Em breve estoque e detalhes",
     peso: "Frasco 20ml (Conta-gotas)",
     aroma: "Melaleuca & Copaíba Balsâmico",
@@ -76,7 +76,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: "copaiba-amazonica",
     nome: "COPAÍBA AMAZÔNICA",
-    descricao: "Feito em base glicerinada 100% vegetal com puro óleo-resina de copaíba da Amazônia, rico em beta-cariofileno, e casca da copaíba na composição. Ação anti-inflamatória e cicatrizante que purifica os poros, combate a acne e equilibra a oleosidade com suavidade.",
+    descricao: "Feito em base glicerinada 100% vegetal com puro óleo-resina de copaíba da Amazônia, rico em beta-cariofileno, e casca da copaíba na composição. Ação purificante que limpa suavemente os poros, auxilia no equilíbrio da oleosidade e promove toque aveludado à pele.",
     beneficios: ["Óleo-Resina & Casca de Copaíba", "Base Glicerinada 100% Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "110g",
@@ -87,7 +87,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: "andiroba-amazonica",
     nome: "ANDIROBA AMAZÔNICA",
-    descricao: "Feito em base glicerinada 100% vegetal com puro óleo de andiroba da floresta amazônica, rico em limonoides e ômegas 6 e 9. Potente restaurador tecidual que acalma irritações, combate o ressecamento e renova a maciez da pele.",
+    descricao: "Feito em base glicerinada 100% vegetal com puro óleo de andiroba da floresta amazônica, rico em limonoides e ômegas 6 e 9. Promove hidratação profunda de áreas ressecadas, suaviza a pele e renova a sensação de maciez e viço natural.",
     beneficios: ["Óleo de Andiroba da Amazônia", "Base Glicerinada 100% Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "115g",
@@ -97,12 +97,12 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: "ouro-da-floresta-xampu",
-    nome: "OURO DA FLORESTA - XAMPU SÓLIDO ANTICASPA",
-    descricao: "Feito em base glicerinada 100% vegetal com óleo de copaíba da Amazônia, cascas do tronco da árvore e óleo de coco vegetal. Xampu sólido anticaspa com o mesmo propósito para o cabelo, podendo ser usado junto em um tratamento com o Blend Amazônico ou separadamente.",
-    beneficios: ["Copaíba & Cascas do Tronco", "Xampu Sólido Anticaspa", "Base Glicerinada 100% Vegetal"],
+    nome: "OURO DA FLORESTA - XAMPU SÓLIDO EQUILÍBRIO",
+    descricao: "Feito em base glicerinada 100% vegetal com óleo-resina de copaíba, óleo de coco, óleo essencial de melaleuca e argila verde. Sinergia purificante que auxilia na redução da descamação do couro cabeludo, ajuda a equilibrar a oleosidade e promove sensação de frescor aos fios.",
+    beneficios: ["Copaíba, Melaleuca & Argila Verde", "Auxilia na Redução da Descamação", "Base Glicerinada 100% Vegetal"],
     preco: "Consulte via WhatsApp",
     peso: "110g",
-    aroma: "Balsâmico Terapêutico & Amadeirado",
+    aroma: "Herbal Fresco, Melaleuca & Balsâmico",
     imagem: soap3,
     disponivel: false // Ainda não disponível / Sob encomenda
   },
