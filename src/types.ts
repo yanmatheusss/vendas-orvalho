@@ -8,6 +8,8 @@ export interface Product {
   disponivel: boolean; // Altere para false quando esgotar o estoque
   peso?: string;
   aroma?: string;
+  isLancamento?: boolean;
+  statusBadge?: string;
 }
 
 export interface StoreConfig {

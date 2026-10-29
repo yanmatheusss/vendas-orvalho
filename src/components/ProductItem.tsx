@@ -20,7 +20,9 @@ export const ProductItem: React.FC<ProductItemProps> = ({
 
   // Build WhatsApp message
   const whatsappNumber = STORE_CONFIG.whatsapp.numero.replace(/\D/g, '');
-  const rawMessage = product.disponivel
+  const rawMessage = product.isLancamento
+    ? `Olá! Vi o lançamento *${product.nome}* no catálogo e gostaria de saber mais informações e detalhes assim que o estoque estiver disponível.`
+    : product.disponivel
     ? STORE_CONFIG.whatsapp.mensagemPadrao
         .replace('{NOME}', product.nome)
         .replace('{PRECO}', product.preco)
@@ -33,12 +35,19 @@ export const ProductItem: React.FC<ProductItemProps> = ({
   const TextContent = (
     <div className="flex flex-col justify-center space-y-3 md:space-y-4 px-1 sm:px-4 text-center md:text-left">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-        <h2
-          id={`product-title-${product.id}`}
-          className="text-lg sm:text-xl md:text-2xl font-bold tracking-wider uppercase text-[#434F2A] leading-snug"
-        >
-          {product.nome}
-        </h2>
+        <div className="flex flex-col gap-1 items-center md:items-start">
+          {product.isLancamento && (
+            <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-[#B96940] bg-[#B96940]/15 border border-[#B96940]/30 px-2.5 py-0.5 rounded-full w-fit">
+              ★ Lançamento
+            </span>
+          )}
+          <h2
+            id={`product-title-${product.id}`}
+            className="text-lg sm:text-xl md:text-2xl font-bold tracking-wider uppercase text-[#434F2A] leading-snug"
+          >
+            {product.nome}
+          </h2>
+        </div>
       </div>
 
       <p className="text-sm sm:text-base text-[#434F2A]/85 leading-relaxed font-normal">
@@ -75,7 +84,11 @@ export const ProductItem: React.FC<ProductItemProps> = ({
 
       {/* Stock badge & Value discovery notice */}
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-0.5">
-        {product.disponivel ? (
+        {product.statusBadge ? (
+          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B96940] bg-[#B96940]/15 px-2.5 py-1 rounded-full">
+            <Clock size={12} className="text-[#B96940]" /> {product.statusBadge}
+          </span>
+        ) : product.disponivel ? (
           <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#434F2A] bg-[#6D7833]/15 px-2.5 py-1 rounded-full">
             <CheckCircle2 size={12} className="text-[#6D7833]" /> Pronta entrega
           </span>
@@ -85,7 +98,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({
           </span>
         )}
         <span className="text-[11px] text-[#B96940] font-semibold">
-          • Consulte o valor via WhatsApp
+          • {product.isLancamento ? 'Em breve estoque e detalhes' : 'Consulte o valor via WhatsApp'}
         </span>
       </div>
     </div>
@@ -104,8 +117,8 @@ export const ProductItem: React.FC<ProductItemProps> = ({
         />
         {!product.disponivel && (
           <div className="absolute inset-0 bg-[#434F2A]/60 backdrop-blur-xs flex items-center justify-center p-4 text-center">
-            <span className="bg-[#F4EEE1] text-[#434F2A] text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg">
-              Sob Encomenda
+            <span className="bg-[#F4EEE1] text-[#434F2A] text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-full shadow-lg">
+              {product.isLancamento ? (product.statusBadge || 'Lançamento • Em Breve') : 'Sob Encomenda'}
             </span>
           </div>
         )}
@@ -147,16 +160,22 @@ export const ProductItem: React.FC<ProductItemProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           className={`group relative inline-flex items-center justify-center gap-2.5 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full font-bold text-sm sm:text-base tracking-wide uppercase shadow-md transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 ${
-            product.disponivel
+            product.isLancamento
+              ? 'bg-[#B96940] hover:bg-[#a55a33] text-[#F4EEE1] shadow-[#B96940]/25'
+              : product.disponivel
               ? 'bg-[#B96940] hover:bg-[#a55a33] text-[#F4EEE1] shadow-[#B96940]/25'
               : 'bg-[#6D7833] hover:bg-[#434F2A] text-[#F4EEE1] shadow-[#6D7833]/25'
           }`}
         >
           <MessageCircle size={18} className="transition-transform group-hover:scale-110" />
-          <span>{product.disponivel ? 'adquirir agora' : 'consultar no chat'}</span>
+          <span>{product.isLancamento ? 'Em breve estoque e detalhes' : product.disponivel ? 'adquirir agora' : 'consultar no chat'}</span>
         </a>
         <span className="text-[11px] text-[#434F2A]/70 mt-2 font-medium tracking-tight text-center">
-          {product.disponivel ? 'Consulte valores e frete direto no WhatsApp' : 'Verifique disponibilidade e prazo no WhatsApp'}
+          {product.isLancamento
+            ? 'Tire dúvidas e seja avisado do lançamento direto no WhatsApp'
+            : product.disponivel
+            ? 'Consulte valores e frete direto no WhatsApp'
+            : 'Verifique disponibilidade e prazo no WhatsApp'}
         </span>
       </div>
     </motion.article>

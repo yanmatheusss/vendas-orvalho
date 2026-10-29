@@ -3,6 +3,7 @@ import soap1 from './assets/images/artisan_soap_1_1788391357804.jpg';
 import soap2 from './assets/images/artisan_soap_2_1788391371832.jpg';
 import soap3 from './assets/images/artisan_soap_3_1788391387019.jpg';
 import soap4 from './assets/images/artisan_soap_4_1788391400296.jpg';
+import coquetelImg from './assets/images/coquetel_amazonico_bottle_1793042917461.jpg';
 
 /**
  * =========================================================================
@@ -60,10 +61,23 @@ export const STORE_CONFIG: StoreConfig = {
  */
 export const INITIAL_PRODUCTS: Product[] = [
   {
+    id: "ouro-da-floresta-blend",
+    nome: "OURO DA FLORESTA - BLEND AMAZÔNICO",
+    descricao: "Lançamento da linha Ouro da Floresta de produtos amazônicos de copaíba. Frasco de 20ml com conta-gotas com blend de óleo de copaíba, coco e óleo essencial de melaleuca. Formulado para uso capilar e couro cabeludo: combate a caspa, hidratação profunda e crescimento saudável.",
+    beneficios: ["Óleo de Copaíba & Coco", "Óleo Essencial de Melaleuca", "Uso Capilar & Anticaspa", "20ml com Conta-gotas"],
+    preco: "Em breve estoque e detalhes",
+    peso: "Frasco 20ml (Conta-gotas)",
+    aroma: "Melaleuca & Copaíba Balsâmico",
+    imagem: coquetelImg,
+    disponivel: false,
+    isLancamento: true,
+    statusBadge: "Sob encomenda"
+  },
+  {
     id: "copaiba-amazonica",
     nome: "COPAÍBA AMAZÔNICA",
-    descricao: "Feito em base glicerinada 100% vegetal com puro óleo-resina de copaíba da Amazônia, rico em beta-cariofileno. Ação anti-inflamatória e cicatrizante que purifica os poros, combate a acne e equilibra a oleosidade com suavidade.",
-    beneficios: ["Óleo de Copaíba da Amazônia", "Base Glicerinada 100% Vegetal", "Sem Soda Cáustica"],
+    descricao: "Feito em base glicerinada 100% vegetal com puro óleo-resina de copaíba da Amazônia, rico em beta-cariofileno, e casca da copaíba na composição. Ação anti-inflamatória e cicatrizante que purifica os poros, combate a acne e equilibra a oleosidade com suavidade.",
+    beneficios: ["Óleo-Resina & Casca de Copaíba", "Base Glicerinada 100% Vegetal", "Sem Soda Cáustica"],
     preco: "Consulte via WhatsApp",
     peso: "110g",
     aroma: "Amadeirado Balsâmico & Suave",
@@ -82,10 +96,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     disponivel: false // Ainda não disponível / Sob encomenda
   },
   {
-    id: "ouro-da-floresta",
-    nome: "OURO DA FLORESTA",
-    descricao: "Feito em base glicerinada 100% vegetal com óleo de copaíba da Amazônia, cascas do tronco da árvore e óleo de coco vegetal. Shampoo sólido anticaspa amazônico que purifica o couro cabeludo e equilibra a saúde dos fios com suavidade.",
-    beneficios: ["Copaíba & Cascas do Tronco", "Shampoo Sólido Anticaspa", "Base Glicerinada 100% Vegetal"],
+    id: "ouro-da-floresta-xampu",
+    nome: "OURO DA FLORESTA - XAMPU SÓLIDO ANTICASPA",
+    descricao: "Feito em base glicerinada 100% vegetal com óleo de copaíba da Amazônia, cascas do tronco da árvore e óleo de coco vegetal. Xampu sólido anticaspa com o mesmo propósito para o cabelo, podendo ser usado junto em um tratamento com o Blend Amazônico ou separadamente.",
+    beneficios: ["Copaíba & Cascas do Tronco", "Xampu Sólido Anticaspa", "Base Glicerinada 100% Vegetal"],
     preco: "Consulte via WhatsApp",
     peso: "110g",
     aroma: "Balsâmico Terapêutico & Amadeirado",
